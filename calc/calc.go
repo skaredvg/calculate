@@ -13,6 +13,8 @@ func (c calculator) Calculate(op1, op2 float64, operation string) (result float6
 	switch operation {
 	case "+":
 		result, err = c.add(op1, op2)
+	case "-":
+		result, err = c.sub(op1, op2)
 	default:
 		err = fmt.Errorf("Операция %s неподдерживается", operation)
 	}
@@ -21,4 +23,8 @@ func (c calculator) Calculate(op1, op2 float64, operation string) (result float6
 
 func (c calculator) add(op1, op2 float64) (float64, error) {
 	return (op1 + op2), nil
+}
+
+func (c calculator) sub(op1, op2 float64) (float64, error) {
+	return (op1 - op2), nil
 }
